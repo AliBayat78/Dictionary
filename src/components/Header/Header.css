@@ -1,0 +1,13 @@
+.title {
+  font-size: 6vw;
+}
+
+.header {
+  height: 35vh;
+}
+
+@media (max-width: 900px) {
+  .title {
+    font-size: 10vw;
+  }
+}

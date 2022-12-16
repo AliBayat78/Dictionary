@@ -1,19 +1,26 @@
 import { MenuItem, TextField } from '@mui/material'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 import categories from '../../data/category'
+import './Header.css'
 
-const Header = ({ category, setCategory, word, setWord }) => {
+const Header = ({ category, setCategory, word, setWord, darkMode }) => {
   const darkTheme = createTheme({
     palette: {
-      mode: 'dark',
+      primary: {
+        main: darkMode ? '#000' : '#fff',
+      },
+      mode: darkMode ? 'light' : 'dark',
     },
   })
 
+  const handleChange = (language) => {
+    setCategory(language)
+    setWord('')
+  }
+
   return (
-    <div className="flex flex-col items-center justify-evenly w-full h-2/5 md:height-1/5">
-      <span className="text-5xl md:text-8xl uppercase font-Montserrat">
-        {word ? word : 'Word Hunt'}
-      </span>
+    <div className="header flex flex-col items-center justify-evenly w-full md:height-1/5">
+      <span className="title uppercase font-Montserrat">{word ? word : 'Word Hunt'}</span>
       <div className="flex w-1/2 flex-row justify-evenly">
         <ThemeProvider theme={darkTheme}>
           <TextField
@@ -21,13 +28,15 @@ const Header = ({ category, setCategory, word, setWord }) => {
             onChange={(e) => setWord(e.target.value)}
             label="Search a Word"
             variant="standard"
+            className="w-1/3"
           />
           <TextField
             select
             value={category}
-            onChange={(e) => setCategory(e.target.value)}
+            onChange={(e) => handleChange(e.target.value)}
             label="Language"
             helperText="Please select your language"
+            className="w-1/3"
           >
             {categories.map((option) => {
               return (

@@ -1,0 +1,9 @@
+.meanings {
+  scrollbar-width: thin;
+  height: 60vh;
+  border: 10px solid rgb(105, 105, 105);
+}
+
+.subTitle {
+  font-size: 5vw;
+}
