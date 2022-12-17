@@ -20,8 +20,8 @@ const Header = ({ category, setCategory, word, setWord, darkMode }) => {
 
   return (
     <div className="header flex flex-col items-center justify-evenly w-full md:height-1/5">
-      <span className="title uppercase font-Montserrat">{word ? word : 'Word Hunt'}</span>
-      <div className="flex w-1/2 flex-row justify-evenly">
+      <span className="title uppercase font-Montserrat mt-10">{word ? word : 'Word Hunt'}</span>
+      <div className="flex flex-row justify-evenly w-full mx-2.5">
         <ThemeProvider theme={darkTheme}>
           <TextField
             value={word}
